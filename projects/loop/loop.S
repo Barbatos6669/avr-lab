@@ -1,4 +1,4 @@
-#include <avr/io.h>	
+#include <avr/io.h>
 
 .global main
 
@@ -26,5 +26,5 @@ inner:
 	dec r19
 	brne middle
 	dec r18
-	brne outer 
+	brne outer
 	ret
