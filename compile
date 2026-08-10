@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+source_file="${1:-$script_dir/projects/blink/blink.S}"
+
+exec "$script_dir/build-flash.sh" "$source_file"

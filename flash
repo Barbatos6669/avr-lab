@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if (($# < 1 || $# > 2)); then
+    echo "Usage: ./flash PORT [SOURCE.S]" >&2
+    echo "Example: ./flash /dev/ttyACM0" >&2
+    exit 2
+fi
+
+script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+flash_port="$1"
+source_file="${2:-$script_dir/projects/blink/blink.S}"
+
+exec "$script_dir/build-flash.sh" --flash "$flash_port" "$source_file"
