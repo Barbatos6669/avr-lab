@@ -91,7 +91,7 @@ mcu="atmega328p"
 mkdir -p -- "$build_dir"
 
 echo "Assembling $source_name for $mcu..."
-avr-gcc -mmcu="$mcu" -x assembler-with-cpp -c "$source_path" -o "$object_file"
+avr-gcc -mmcu="$mcu" -g -x assembler-with-cpp -c "$source_path" -o "$object_file"
 
 echo "Linking $elf_file..."
 avr-gcc -mmcu="$mcu" -nostartfiles -nostdlib "$object_file" -o "$elf_file"
